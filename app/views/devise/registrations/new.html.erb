@@ -1,0 +1,74 @@
+  <div class="col-md-4 col-md-offset-4 form-new">
+    <dic class="container">
+    <div class="outter-form-signup">
+         <div class="signup">
+            <h3 class="text-center title-login">Sign Up User</h3>
+         </div>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "inner-login"}) do |f| %>
+            <%= devise_error_messages! %>
+            <div class="form-group">
+
+              <div class="form-group">
+              <%= f.text_field :nim, autofocus: true, :class => 'form-control', placeholder: "NIM/No KTP/No Induk Pelajar" %>
+            </div>
+            <div class="form-group">
+              <%= f.text_field :nama, autofocus: true, :class => 'form-control', placeholder: "Nama Lengkap" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :jenis_kelamin %><br>
+              <%= f.radio_button :jenis_kelamin, 'Laki-laki' %>
+              <%= label :jenis_kelamin_Laki_laki, 'Laki-laki' %>
+              <%= f.radio_button :jenis_kelamin, 'Perempuan' %>
+              <%= label :jenis_kelamin_perempuan, 'Perempuan' %>
+           </div>
+
+            <div class="form-group">
+              <%= f.text_area :alamat, autofocus: true, :class => 'form-control', placeholder: "Alamat" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.text_field :tempat_lahir, autofocus: true, :class => 'form-control', placeholder: "Tempat Lahir" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.date_field :tgl_lahir, autofocus: true, :class => 'form-control', placeholder: "Tanggal Lahir" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.telephone_field :no_telepon, autofocus: true, :class => 'form-control', placeholder: "No Telepon" %>
+            </div>  
+
+            <div class="form-group">
+              <%= f.label :profile_picture %><br>
+              <%= f.file_field :profile_picture %>
+              <% if f.object.profile_picture? %>
+                <%= image_tag f.object.profile_picture.thumb.url %>
+                <%= f.label :remove_profile_picture %>
+                <%= f.check_box :remove_profile_picture %> 
+              <% end %>
+            </div>
+            <%= f.hidden_field :kepribadian, :value => 'Belum melakukan tes' %>
+            
+              <%= f.email_field :email, autofocus: true, :class => 'form-control', placeholder: "Email"%>
+            </div>
+
+            <div class="form-group">
+              <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %><br />
+              <%= f.password_field :password, autocomplete: "off", :class => 'form-control', placeholder: "password" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.password_field :password_confirmation, autocomplete: "off", :class => 'form-control', placeholder: "password confirmation" %>
+            </div>
+            
+            <%= f.submit "Sign Up", :class => 'btn btn-block btn-danger' %>
+          <% end %>
+
+          <%= render "devise/shared/links" %>
+        </div>
+     </dic>
+  </div>
+
+

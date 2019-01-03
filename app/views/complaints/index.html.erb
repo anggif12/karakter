@@ -1,0 +1,76 @@
+<div class="header-page">
+  <div class="nav-page">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <%= link_to image_tag("logo", :class => 'navbar-logo'), {controller: 'welcome'} %>
+      </div>
+      <ul class="nav nav-pills">
+        <li role="presentation"><%= link_to 'Pengguna', users_path %></li>
+        <li role="presentation"><%= link_to 'Admin', controller: 'admin' %></li>
+        <li role="presentation"><%= link_to 'Pertanyaan', questions_path %></li>
+        <li role="presentation"><%= link_to 'Keluhan', complaints_path %></li>
+      </ul>
+      <ul class="nav nav-pills navbar-right">
+        <div class="navbar-text pull-right">
+          <% if user_signed_in? %>
+            <% if current_user.has_role? :admin %>
+          <%= if !current_user.nil?
+                current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
+          end%>
+        <% else %>
+          <%= if !current_user.nil?
+                current_user.email + ' (user)'
+          end%>     
+        <% end %>
+            <%= link_to "Profil", current_user, :class => 'navbar-link' %> 
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+          <% else %>
+            <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> 
+            <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+          <% end %>
+        </div>    
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="body-page">
+    <div class="container-fluid">
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr class="info">
+              <th>Email</th>
+              <th>Keluhan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @complaints.each do |complaint| %>
+              <tr>
+                <td><%= link_to complaint.user.email, complaint_path(complaint) %></td>
+                <td><%= complaint.text %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="container">
+        &copy; 2017. Designed by CYC Team.
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

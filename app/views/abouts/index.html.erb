@@ -1,0 +1,240 @@
+<div class="head-about">
+	<div class="logo-about">
+		<%= link_to image_tag("logo"), {controller: 'welcome'} %>
+		
+    <ul class="nav nav-pills navbar-right">
+        <div class="navbar-text pull-right">
+   
+       <% if user_signed_in? %>
+        <% if current_user.has_role? :admin %>
+          <%= if !current_user.nil?
+                current_user.email + ' (' + current_user.roles.pluck(:name).join(",") + ')'
+          end%>
+        <% else %>
+          <%= if !current_user.nil?
+                current_user.email + ' (user)'
+          end%>     
+        <% end %>
+        <%= link_to "Profil", current_user, :class => 'navbar-link' %> 
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> 
+        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+      <% end %>
+      
+      </ul>
+	</div>
+</div>
+
+<div class="container">
+<br/>
+<h2 class="text-center about" style="color: white">About Us</h2>
+     
+       <div class="outter-form-about col-md-3 about1">
+       <div class="text-center foto">
+             <%= link_to image_tag("avatar", width: 400, :class => "img-thumbnail img-rounded") %> 
+       </div>
+       <br>
+       <br>
+          <div class="table-responsive">
+
+            <table class="table table-striped">
+            
+            <tbody>
+
+            <tr>
+              <td class="text-center"><strong>Thariq Waridi</strong></td>
+              
+            </tr>
+
+            <tr>
+              <td class="text-center">Depops and Developer</td>
+             
+            </tr>
+
+            <tr>
+              <td class="text-center">thariq@google.com</td>
+             
+            </tr>
+            
+            <tr>
+              <td class="text-center"><em>"Engineering"</em></td>
+             
+            </tr>
+
+            </tbody>
+           </table>
+
+           <div class="progress">
+           <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="60" arial-valuemin="0" aria-valuemax="100" style="width: 60%">
+           		<span class="sr-only">60% Complete</span>
+          </div>
+          		<span class="progress-type">HTML</span>
+          		<span class="progress-completed">60%</span>
+          </div>
+
+          <div class="progress">
+           <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40" arial-valuemin="0" aria-valuemax="100" style="width: 40%">
+           		<span class="sr-only">40% Complete</span>
+          </div>
+          		<span class="progress-type">CSS</span>
+          		<span class="progress-completed">40%</span>
+          </div>
+
+          <div class="progress">
+           <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="35" arial-valuemin="0" aria-valuemax="100" style="width: 35%">
+           		<span class="sr-only">35% Complete</span>
+          </div>
+          		<span class="progress-type">Bootstrap</span>
+          		<span class="progress-completed">35%</span>
+          </div>
+
+          <div class="progress">
+           <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="15" arial-valuemin="0" aria-valuemax="100" style="width: 15%">
+           		<span class="sr-only">15% Complete</span>
+          </div>
+          		<span class="progress-type">JavaScript</span>
+          		<span class="progress-completed">15%</span>
+          </div>
+       		</div>
+         </div>
+
+         <div class="outter-form-about col-md-3 col-md-offset-1">
+       <div class="text-center foto">
+             <%= link_to image_tag("Anggifauzi", width: 400, :class => "img-thumbnail img-rounded") %> 
+       </div>
+       <br>
+       <br>
+          <div class="table-responsive">
+
+            <table class="table table-striped">
+            
+            <tbody>
+
+            <tr>
+              <td class="text-center"><strong>Anggi Fauzi</strong></td>
+              
+            </tr>
+
+            <tr>
+              <td class="text-center">Front End Developer</td>
+             
+            </tr>
+
+            <tr>
+              <td class="text-center">contact@afauzi.com</td>
+             
+            </tr>
+            
+            <tr>
+              <td class="text-center"><em>"I Hate Engineering, But I Was Born To Be An Engineer"</em></td>
+             
+            </tr>
+
+            </tbody>
+           </table>
+
+           <div class="progress">
+           <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="60" arial-valuemin="0" aria-valuemax="100" style="width: 60%">
+              <span class="sr-only">60% Complete</span>
+          </div>
+              <span class="progress-type">HTML</span>
+              <span class="progress-completed">60%</span>
+          </div>
+
+          <div class="progress">
+           <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40" arial-valuemin="0" aria-valuemax="100" style="width: 40%">
+              <span class="sr-only">40% Complete</span>
+          </div>
+              <span class="progress-type">CSS</span>
+              <span class="progress-completed">40%</span>
+          </div>
+
+          <div class="progress">
+           <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="35" arial-valuemin="0" aria-valuemax="100" style="width: 35%">
+              <span class="sr-only">35% Complete</span>
+          </div>
+              <span class="progress-type">Bootstrap</span>
+              <span class="progress-completed">35%</span>
+          </div>
+
+          <div class="progress">
+           <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="15" arial-valuemin="0" aria-valuemax="100" style="width: 15%">
+              <span class="sr-only">15% Complete</span>
+          </div>
+              <span class="progress-type">JavaScript</span>
+              <span class="progress-completed">15%</span>
+          </div>
+          </div>
+         </div>
+
+       <div class="outter-form-about col-md-3 col-md-offset-1">
+       <div class="text-center foto">
+             <%= link_to image_tag("avatar", width: 400, :class => "img-thumbnail") %> 
+       </div>
+       <br>
+       <br>
+          <div class="table-responsive">
+
+            <table class="table table-striped">
+            
+            <tbody>
+
+            <tr>
+              <td class="text-center"><strong>Bayu Hidayat</strong></td>
+              
+            </tr>
+
+            <tr>
+              <td class="text-center">Back End Developer</td>
+             
+            </tr>
+
+            <tr>
+              <td class="text-center">bayuhidayat@centerbis.com</td>
+             
+            </tr>
+            
+            <tr>
+              <td class="text-center"><em>"I'm is a Code Addict"</em></td>
+             
+            </tr>
+
+            </tbody>
+           </table>
+
+           <div class="progress">
+           <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" arial-valuemin="0" aria-valuemax="100" style="width: 40%">
+           		<span class="sr-only">40% Complete</span>
+          </div>
+          		<span class="progress-type">PHP</span>
+          		<span class="progress-completed">40%</span>
+          </div>
+
+          <div class="progress">
+           <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="70" arial-valuemin="0" aria-valuemax="100" style="width: 70%">
+           		<span class="sr-only">70% Complete</span>
+          </div>
+          		<span class="progress-type">Ruby On Rails</span>
+          		<span class="progress-completed">70%</span>
+          </div>
+
+          <div class="progress">
+           <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="35" arial-valuemin="0" aria-valuemax="100" style="width: 35%">
+           		<span class="sr-only">35% Complete</span>
+          </div>
+          		<span class="progress-type">MySQL</span>
+          		<span class="progress-completed">35%</span>
+          </div>
+
+          <div class="progress">
+           <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="55" arial-valuemin="0" aria-valuemax="100" style="width: 55%">
+           		<span class="sr-only">55% Complete</span>
+          </div>
+          		<span class="progress-type">PostgreSQL</span>
+          		<span class="progress-completed">55%</span>
+          </div>
+
+
+       </div>
+</div>
