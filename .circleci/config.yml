@@ -24,7 +24,6 @@ jobs:
           POSTGRES_DB: CYC
           POSTGRES_PASSWORD: "123456"
 
-    working_directory: ~/repo
 
     steps:
       - checkout
